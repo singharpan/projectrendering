@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>C-Rendering</title>
+
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Conditional Rendering</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+      class CondRendering extends React.Component {
+        state = {
+          Country: ["India", "Isreal", "USA", "France", "Russia", "NEpal"],
+        };
+        Array() {
+          if (this.state.Country.length === 0) return <p> Array is Empty</p>;
+          return (
+            <React.Fragment>
+              {this.state.Country.map((i) => {
+                return <li>{i}</li>;
+              })}
+            </React.Fragment>
+          );
+        }
+
+        render() {
+          return <div>{this.Array()}</div>;
+        }
+      }
+
+      ReactDOM.render(<CondRendering />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
